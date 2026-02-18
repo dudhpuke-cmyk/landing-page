@@ -3,6 +3,7 @@ import Script from 'next/script'
 import './globals.css'
 import { siteMetadata, structuredData } from '../lib/seo'
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,

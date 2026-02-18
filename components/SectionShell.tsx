@@ -19,6 +19,7 @@ export function SectionShell({ id, eyebrow, title, description, children }: Sect
     <section id={id} className="section-spacing" aria-labelledby={id ? `${id}-title` : undefined}>
       <div className="container-page">
         <motion.div
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           ref={ref as any}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
