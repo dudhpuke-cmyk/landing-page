@@ -57,7 +57,7 @@ model Product {
   description String?
   status      ProductStatus @default(ACTIVE) // ACTIVE, COMING_SOON, DISCONTINUED
   unit        String        // e.g. "litre", "kg"
-  basePrice   Decimal       @db.Decimal(10, 2)
+  basePrice   Decimal       @db.Decimal
 
   // Flags for UI / feature toggles
   isSubscriptionEnabled Boolean @default(true)
@@ -82,7 +82,7 @@ model Subscription {
   productId       String
 
   planType        SubscriptionPlan  @default(DAILY) // DAILY, MONTHLY, CUSTOM
-  quantityPerDay  Decimal?          @db.Decimal(10, 2)
+  quantityPerDay  Decimal?          @db.Decimal
   billingCycle    BillingCycle      @default(MONTHLY)
   startDate       DateTime
   endDate         DateTime?
@@ -111,7 +111,7 @@ model Order {
   scheduledDate   DateTime?
   deliveredDate   DateTime?
 
-  totalAmount     Decimal      @db.Decimal(10, 2)
+  totalAmount     Decimal      @db.Decimal
   currency        String       @default("NPR")
 
   paymentProvider PaymentProvider? // e.g. Razorpay later
@@ -131,9 +131,9 @@ model OrderItem {
   product    Product  @relation(fields: [productId], references: [id])
   productId  String
 
-  quantity   Decimal  @db.Decimal(10, 2)
-  unitPrice  Decimal  @db.Decimal(10, 2)
-  lineTotal  Decimal  @db.Decimal(10, 2)
+  quantity   Decimal  @db.Decimal
+  unitPrice  Decimal  @db.Decimal
+  lineTotal  Decimal  @db.Decimal
 }
 
 model Delivery {
