@@ -100,17 +100,27 @@ Dudhpuke-landingPage/
    npm install
    ```
 
-2. **Set up environment variables** (create `.env`):
+2. **Set up environment variables** (create `.env` from `.env.example`):
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Then edit `.env` and fill in your values:
    ```env
    # Database (optional for initial development)
    DATABASE_URL="postgresql://user:password@localhost:5432/dudhpuke"
    
    # Authentication (for future NextAuth integration)
-   NEXTAUTH_SECRET="your-secret-key"
+   NEXTAUTH_SECRET="your-secret-key"  # Generate with: openssl rand -base64 32
    NEXTAUTH_URL="http://localhost:3000"
    
-   # Resend Email API
-   RESEND_API_KEY="re_7gwzUZw3_FqDCocVuPUDM32hcB1FLqUF5"
+   # Resend Email API (get from https://resend.com/api-keys)
+   RESEND_API_KEY="re_your_api_key_here"
+   RESEND_FROM_EMAIL="onboarding@resend.dev"  # Use verified domain email in production
+   ADMIN_EMAIL="dudhpuke@gmail.com"
+   
+   # Site URL (for SEO metadata)
+   NEXT_PUBLIC_SITE_URL="http://localhost:3000"  # Use production URL in production
    ```
 
 3. **Initialize Prisma** (when ready to connect database):
@@ -256,6 +266,8 @@ Proprietary - Om Sai Pashu Palan / Dudhpuke
 ---
 
 **Built with ❤️ for Dudhpuke - Bringing 20+ years of dairy trust to your doorstep.**
-#   l a n d i n g - p a g e  
- #   l a n d i n g - p a g e  
+#   l a n d i n g - p a g e 
+ 
+ #   l a n d i n g - p a g e 
+ 
  
