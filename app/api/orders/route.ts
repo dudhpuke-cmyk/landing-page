@@ -5,16 +5,11 @@ import { NextResponse } from 'next/server'
  * Returns user's orders (requires auth)
  * POST /api/orders
  * Creates a new order (requires auth)
- * Ready for NextAuth + Prisma + Razorpay integration
+ * Ready for NextAuth + Razorpay integration
  */
 export async function GET() {
   // TODO: Add NextAuth session check
-  // TODO: Replace with Prisma query
-  // const orders = await prisma.order.findMany({
-  //   where: { customerId: session.user.id },
-  //   include: { items: { include: { product: true } } },
-  //   orderBy: { createdAt: 'desc' },
-  // })
+  // TODO: Replace with database query when database is set up
 
   return NextResponse.json({
     orders: [],
@@ -26,7 +21,7 @@ export async function GET() {
 export async function POST(_request: Request) {
   // TODO: Add NextAuth session check
   // TODO: Validate request body
-  // TODO: Create order with Prisma
+  // TODO: Create order in database
   // TODO: Initialize Razorpay payment
   // TODO: Return payment details to client
 

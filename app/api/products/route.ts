@@ -3,11 +3,10 @@ import { NextResponse } from 'next/server'
 /**
  * GET /api/products
  * Returns list of available products
- * Ready for Prisma integration
+ * Returns product list
  */
 export async function GET() {
-  // TODO: Replace with Prisma query
-  // const products = await prisma.product.findMany({ where: { isActive: true } })
+  // TODO: Replace with database query when database is set up
 
   return NextResponse.json({
     products: [

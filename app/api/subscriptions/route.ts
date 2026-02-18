@@ -5,18 +5,14 @@ import { NextResponse } from 'next/server'
  * Returns user's subscriptions (requires auth)
  * POST /api/subscriptions
  * Creates a new subscription (requires auth)
- * Ready for NextAuth + Prisma integration
+ * Ready for NextAuth integration
  */
 export async function GET() {
   // TODO: Add NextAuth session check
   // const session = await getServerSession()
   // if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
-  // TODO: Replace with Prisma query
-  // const subscriptions = await prisma.subscription.findMany({
-  //   where: { customerId: session.user.id },
-  //   include: { product: true, deliveries: true },
-  // })
+  // TODO: Replace with database query when database is set up
 
   return NextResponse.json({
     subscriptions: [],
@@ -28,7 +24,7 @@ export async function GET() {
 export async function POST(_request: Request) {
   // TODO: Add NextAuth session check
   // TODO: Validate request body
-  // TODO: Create subscription with Prisma
+  // TODO: Create subscription in database
   // TODO: Set up payment (Razorpay-ready structure)
 
   return NextResponse.json(

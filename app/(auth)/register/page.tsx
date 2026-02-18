@@ -10,8 +10,7 @@ export default function RegisterPage() {
       </CardHeader>
       <CardContent className="space-y-4">
         <p className="text-sm text-slate-700">
-          Customer registration page. Ready for NextAuth and Prisma integration to create user
-          accounts.
+          Customer registration page. Ready for NextAuth integration to create user accounts.
         </p>
         <div className="space-y-3">
           <div>

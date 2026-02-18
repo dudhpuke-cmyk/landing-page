@@ -15,7 +15,7 @@ export default function OrdersPage() {
         <CardContent>
           <p className="text-sm text-slate-700">
             This page will display a table of orders with filters, search, and status management.
-            Ready for Prisma queries and real-time updates.
+            Ready for database queries and real-time updates.
           </p>
         </CardContent>
       </Card>

@@ -58,7 +58,7 @@ export default function DashboardPage() {
         </CardHeader>
         <CardContent>
           <p className="text-sm text-slate-700">
-            This dashboard is ready for authentication (NextAuth), database queries (Prisma), and
+            This dashboard is ready for authentication (NextAuth), database queries, and
             payment integration (Razorpay). All routes and components are structured for easy
             expansion.
           </p>
