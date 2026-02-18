@@ -22,6 +22,7 @@ export async function GET() {
   })
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export async function POST(_request: Request) {
   // TODO: Add NextAuth session check
   // TODO: Validate request body
