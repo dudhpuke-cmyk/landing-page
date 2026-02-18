@@ -1,0 +1,24 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="milk" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8EB" />
+      <stop offset="100%" stop-color="#F4F1E8" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="18" fill="#2F6F4E" />
+  <path
+    d="M22 22h20v20c0 4.418-3.582 8-8 8h-4c-4.418 0-8-3.582-8-8V22z"
+    fill="url(#milk)"
+  />
+  <path
+    d="M36 16h-8l-2 4h12l-2-4z"
+    fill="#F4F1E8"
+  />
+  <path
+    d="M28 34c1.2 1.4 2.8 2.1 4 2.1s2.8-.7 4-2.1"
+    stroke="#2F6F4E"
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+</svg>
+
