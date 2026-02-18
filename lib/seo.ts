@@ -2,7 +2,7 @@ export const siteMetadata = {
   title: 'Dudhpuke | Farm Fresh Milk Delivery by Om Sai Pashu Palan',
   description:
     'Dudhpuke delivers fresh, pure, farm-direct milk from Om Sai Pashu Palan. 20+ years of trusted local dairy service with convenient home delivery and subscription plans.',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dudhpuke.com',
+  url: 'https://www.dudhpuke.com',
   siteName: 'Dudhpuke',
   keywords: [
     'Dudhpuke',
@@ -34,15 +34,13 @@ export const siteMetadata = {
   },
 }
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.dudhpuke.com'
-
 export const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Dudhpuke',
-  image: [`${siteUrl}/og-image.jpg`],
-  '@id': siteUrl,
-  url: siteUrl,
+  image: ['https://www.dudhpuke.com/og-image.jpg'],
+  '@id': 'https://www.dudhpuke.com',
+  url: 'https://www.dudhpuke.com',
   telephone: siteMetadata.businessPhone,
   priceRange: '₹₹',
   address: {

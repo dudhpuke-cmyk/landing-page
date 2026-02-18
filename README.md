@@ -101,27 +101,24 @@ Dudhpuke-landingPage/
    ```
 
 2. **Set up environment variables** (create `.env` from `.env.example`):
-   ```bash
-   cp .env.example .env
-   ```
-   
-   Then edit `.env` and fill in your values:
    ```env
    # Database (optional for initial development)
+   # If not set, the app will run without database functionality
    DATABASE_URL="postgresql://user:password@localhost:5432/dudhpuke"
    
    # Authentication (for future NextAuth integration)
-   NEXTAUTH_SECRET="your-secret-key"  # Generate with: openssl rand -base64 32
+   NEXTAUTH_SECRET="your-secret-key-here"
    NEXTAUTH_URL="http://localhost:3000"
    
-   # Resend Email API (get from https://resend.com/api-keys)
-   RESEND_API_KEY="re_your_api_key_here"
-   RESEND_FROM_EMAIL="onboarding@resend.dev"  # Use verified domain email in production
-   ADMIN_EMAIL="dudhpuke@gmail.com"
+   # Resend Email API
+   RESEND_API_KEY="your-resend-api-key-here"
    
-   # Site URL (for SEO metadata)
-   NEXT_PUBLIC_SITE_URL="http://localhost:3000"  # Use production URL in production
+   # Email Configuration (optional)
+   RESEND_FROM_EMAIL="Dudhpuke <onboarding@resend.dev>"
+   RESEND_REPLY_TO="dudhpuke@gmail.com"
    ```
+   
+   **Note**: See `.env.example` for a complete list of environment variables.
 
 3. **Initialize Prisma** (when ready to connect database):
    ```bash
@@ -250,6 +247,39 @@ The codebase is structured to easily add:
 - Modular component structure
 - Reusable utility functions
 
+## 🚀 Deployment
+
+### Pre-Deployment Checklist
+
+Before deploying, ensure you have:
+
+1. **Environment Variables**: Set all required environment variables in your deployment platform
+   - `DATABASE_URL` (optional if not using database yet)
+   - `RESEND_API_KEY` (required for email functionality)
+   - `RESEND_FROM_EMAIL` (optional, defaults to test domain)
+   - `NEXTAUTH_SECRET` (if using authentication)
+   - `NEXTAUTH_URL` (your production domain)
+
+2. **Prisma Client**: Automatically generated via `postinstall` script
+   - No manual steps needed
+   - If database is not configured, the app will run without database functionality
+
+3. **Build Process**: 
+   ```bash
+   npm install  # Runs prisma generate automatically
+   npm run build
+   ```
+
+### Deployment Issues
+
+See **[DEPLOYMENT_ISSUES.md](./DEPLOYMENT_ISSUES.md)** for a comprehensive list of potential deployment problems and their solutions.
+
+### Platform-Specific Notes
+
+- **Vercel**: Automatically handles `postinstall` scripts. Set environment variables in dashboard.
+- **Railway**: Supports Next.js standalone output. Add environment variables in dashboard.
+- **Docker**: Standalone output works well. Ensure environment variables are available.
+
 ## 📝 Notes
 
 - Database connection is optional for initial development
@@ -257,7 +287,7 @@ The codebase is structured to easily add:
 - Dashboard pages are placeholders ready for data integration
 - Authentication pages are UI-only (NextAuth integration pending)
 - Payment flows are structured but not connected (Razorpay-ready)
-- The marketing copy on the public landing page has been simplified to remove heavy “subscription platform” and SaaS wording; it now describes Dudhpuke mainly as regular local milk delivery with simple monthly payment.
+- The marketing copy on the public landing page has been simplified to remove heavy "subscription platform" and SaaS wording; it now describes Dudhpuke mainly as regular local milk delivery with simple monthly payment.
 
 ## 📄 License
 

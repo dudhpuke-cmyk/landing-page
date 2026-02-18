@@ -6,39 +6,49 @@ import { PrismaClient } from '@prisma/client'
  *
  * In production, this prevents multiple instances of Prisma Client
  * during hot reloading in development.
+ * 
+ * Note: Prisma Client will only be created if DATABASE_URL is set.
+ * This allows the app to run without a database connection during initial deployment.
  */
 const globalForPrisma = globalThis as unknown as {
-  prisma: PrismaClient | undefined
+  prisma: PrismaClient | null | undefined
 }
 
-// Gracefully handle missing DATABASE_URL
-const getPrismaClient = () => {
+// Only create Prisma Client if DATABASE_URL is available
+// This prevents errors during build/deployment when database isn't configured yet
+const createPrismaClient = (): PrismaClient | null => {
   if (!process.env.DATABASE_URL) {
     console.warn(
-      '⚠️  DATABASE_URL is not set. Database features will be unavailable. Set DATABASE_URL in your .env file to enable database functionality.',
+      'DATABASE_URL is not set. Prisma Client will not be initialized. ' +
+      'Set DATABASE_URL in your environment variables to enable database functionality.'
     )
-    // Return a mock client that throws helpful errors
-    return new Proxy({} as PrismaClient, {
-      get() {
-        throw new Error(
-          'Database is not configured. Please set DATABASE_URL in your environment variables.',
-        )
-      },
-    })
+    return null
   }
 
-  return new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
-  })
+  try {
+    return new PrismaClient({
+      log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+    })
+  } catch (error) {
+    console.error('Failed to initialize Prisma Client:', error)
+    return null
+  }
 }
 
-export const prisma =
-  globalForPrisma.prisma ?? getPrismaClient()
+export const prisma: PrismaClient | null =
+  globalForPrisma.prisma ?? createPrismaClient()
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
+if (process.env.NODE_ENV !== 'production' && prisma) {
+  globalForPrisma.prisma = prisma
+}
 
 /**
  * Usage example:
  * import { prisma } from '@/lib/prisma'
+ * 
+ * // Always check if prisma is available before using it
+ * if (!prisma) {
+ *   throw new Error('Database is not configured. Please set DATABASE_URL.')
+ * }
  * const products = await prisma.product.findMany()
  */

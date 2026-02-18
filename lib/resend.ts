@@ -15,10 +15,12 @@ export const resend = process.env.RESEND_API_KEY
  * 
  * For testing: Use Resend's default sender (onboarding@resend.dev)
  * For production: Verify your domain in Resend and use: 'Dudhpuke <no-reply@yourdomain.com>'
+ * 
+ * Set RESEND_FROM_EMAIL environment variable to override the default sender.
  */
 export const EMAIL_CONFIG = {
-  from: process.env.RESEND_FROM_EMAIL || 'Dudhpuke <onboarding@resend.dev>', // Resend's default test sender
-  replyTo: process.env.ADMIN_EMAIL || 'dudhpuke@gmail.com',
+  from: process.env.RESEND_FROM_EMAIL || 'Dudhpuke <onboarding@resend.dev>', // Configurable via env var
+  replyTo: process.env.RESEND_REPLY_TO || 'dudhpuke@gmail.com',
 }
 
 /**

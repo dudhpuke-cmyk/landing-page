@@ -14,31 +14,11 @@ const contactSchema = z.object({
   email: z.string().email().optional(),
 })
 
-// CORS headers for cross-origin requests
-const corsHeaders = {
-  'Access-Control-Allow-Origin': process.env.NEXT_PUBLIC_SITE_URL || '*',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-}
-
-/**
- * OPTIONS /api/contact
- * Handles CORS preflight requests
- */
-export async function OPTIONS() {
-  return new NextResponse(null, { status: 200, headers: corsHeaders })
-}
-
 /**
  * POST /api/contact
  * Handles contact form submissions and sends emails via Resend
  */
 export async function POST(request: Request) {
-  const headers = {
-    'Content-Type': 'application/json',
-    ...corsHeaders,
-  }
-
   try {
     const body = await request.json()
     const validatedData = contactSchema.parse(body)
@@ -52,18 +32,17 @@ export async function POST(request: Request) {
           success: true,
           message: 'Thank you! We have received your details and will contact you shortly.',
         },
-        { status: 200, headers },
+        { status: 200 },
       )
     }
 
     // Send email to admin (only if Resend client is available)
-    const adminEmailAddress = process.env.ADMIN_EMAIL || 'dudhpuke@gmail.com'
     let adminEmail = null
     if (resend) {
       try {
         adminEmail = await resend.emails.send({
           from: EMAIL_CONFIG.from,
-          to: adminEmailAddress,
+          to: 'dudhpuke@gmail.com', // Send to actual admin email
           replyTo: validatedData.email || EMAIL_CONFIG.replyTo,
           ...emailTemplates.contactFormSubmission(validatedData),
         })
@@ -104,7 +83,7 @@ export async function POST(request: Request) {
         message: 'Thank you! We will contact you shortly.',
         emailId: adminEmail?.data?.id,
       },
-      { status: 200, headers },
+      { status: 200 },
     )
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -114,7 +93,7 @@ export async function POST(request: Request) {
           message: 'Invalid form data',
           errors: error.errors,
         },
-        { status: 400, headers },
+        { status: 400 },
       )
     }
 
@@ -124,7 +103,7 @@ export async function POST(request: Request) {
         success: false,
         message: 'Failed to send email. Please try again or contact us directly.',
       },
-      { status: 500, headers },
+      { status: 500 },
     )
   }
 }
