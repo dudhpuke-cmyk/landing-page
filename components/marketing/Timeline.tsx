@@ -17,7 +17,8 @@ export function Timeline({ items }: TimelineProps) {
   const { ref, isInView, variants } = useInViewAnimation()
 
   return (
-    <div ref={ref} className="relative">
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <div ref={ref as any} className="relative">
       <div className="absolute left-4 top-0 h-full w-0.5 bg-brand-cream md:left-8" />
       <div className="space-y-8">
         {items.map((item, index) => (
