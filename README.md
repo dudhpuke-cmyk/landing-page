@@ -4,16 +4,16 @@ A production-grade but now simplified dairy website for **Dudhpuke**, a farm-fre
 
 ## 🏗️ Architecture Overview
 
-Built with **Next.js 14 (App Router)**, TypeScript, Tailwind CSS, and Prisma ORM. Designed as a modern SaaS product with clean architecture, ready for e-commerce, subscriptions, authentication, and admin dashboard functionality.
+Built with **Next.js 15 (App Router)**, TypeScript, Tailwind CSS. Designed as a modern landing page with clean architecture, ready for e-commerce, subscriptions, authentication, and admin dashboard functionality.
 
 ### Tech Stack
 
-- **Framework**: Next.js 15.0.3 (App Router)
+- **Framework**: Next.js 15.1.0 (App Router)
 - **Language**: TypeScript 5.7.3
 - **Styling**: Tailwind CSS 3.4.17
 - **Animations**: Framer Motion
 - **UI Components**: Custom shadcn-style components
-- **Database**: Prisma ORM (PostgreSQL-ready)
+- **Database**: Not currently used (Prisma-ready for future integration)
 - **Email**: Resend (transactional emails)
 - **State Management**: React Server Components + Client Components
 - **SEO**: Next.js Metadata API, OpenGraph, Twitter Cards, JSON-LD
@@ -75,10 +75,7 @@ Dudhpuke-landingPage/
 ├── lib/
 │   ├── seo.ts                # SEO metadata & structured data
 │   ├── utils.ts              # Utility functions (cn, etc.)
-│   ├── prisma.ts             # Prisma client singleton
 │   └── resend.ts             # Resend email client & templates
-├── prisma/
-│   └── schema.prisma         # Database schema
 ├── types/
 │   └── product.ts            # TypeScript types
 ├── hooks/
@@ -91,7 +88,7 @@ Dudhpuke-landingPage/
 ### Prerequisites
 
 - Node.js 18+ and npm/yarn
-- PostgreSQL (for production; optional for development)
+- (Optional) PostgreSQL for future database integration
 
 ### Installation
 
@@ -102,15 +99,7 @@ Dudhpuke-landingPage/
 
 2. **Set up environment variables** (create `.env` from `.env.example`):
    ```env
-   # Database (optional for initial development)
-   # If not set, the app will run without database functionality
-   DATABASE_URL="postgresql://user:password@localhost:5432/dudhpuke"
-   
-   # Authentication (for future NextAuth integration)
-   NEXTAUTH_SECRET="your-secret-key-here"
-   NEXTAUTH_URL="http://localhost:3000"
-   
-   # Resend Email API
+   # Resend Email API (required for email functionality)
    RESEND_API_KEY="your-resend-api-key-here"
    
    # Email Configuration (optional)
@@ -119,19 +108,15 @@ Dudhpuke-landingPage/
    ```
    
    **Note**: See `.env.example` for a complete list of environment variables.
+   
+   **Note**: Database and authentication are not currently used. These are planned for future integration.
 
-3. **Initialize Prisma** (when ready to connect database):
-   ```bash
-   npx prisma generate
-   npx prisma db push
-   ```
-
-4. **Run development server**:
+3. **Run development server**:
    ```bash
    npm run dev
    ```
 
-5. **Build for production**:
+4. **Build for production**:
    ```bash
    npm run build
    npm start
@@ -157,9 +142,9 @@ Dudhpuke-landingPage/
 - ✅ **Placeholder Pages** - Structured for easy expansion
 - ✅ **Authentication Shell** - Login/Register pages ready for NextAuth
 
-### Database Schema (Prisma)
+### Database Schema (Future - Prisma)
 
-Models prepared:
+Database integration is planned for future development. The following models are designed but not yet implemented:
 - `User` - Authentication & user management
 - `Customer` - Customer profiles & addresses
 - `Product` - Product catalog (milk, paneer, ghee, etc.)
@@ -254,17 +239,11 @@ The codebase is structured to easily add:
 Before deploying, ensure you have:
 
 1. **Environment Variables**: Set all required environment variables in your deployment platform
-   - `DATABASE_URL` (optional if not using database yet)
    - `RESEND_API_KEY` (required for email functionality)
    - `RESEND_FROM_EMAIL` (optional, defaults to test domain)
-   - `NEXTAUTH_SECRET` (if using authentication)
-   - `NEXTAUTH_URL` (your production domain)
+   - `RESEND_REPLY_TO` (optional, defaults to dudhpuke@gmail.com)
 
-2. **Prisma Client**: Automatically generated via `postinstall` script
-   - No manual steps needed
-   - If database is not configured, the app will run without database functionality
-
-3. **Build Process**: 
+2. **Build Process**: 
    ```bash
    npm install  # Runs prisma generate automatically
    npm run build
@@ -272,20 +251,22 @@ Before deploying, ensure you have:
 
 ### Deployment Issues
 
-See **[DEPLOYMENT_ISSUES.md](./DEPLOYMENT_ISSUES.md)** for a comprehensive list of potential deployment problems and their solutions.
+See **[VERCEL_DEPLOYMENT_ISSUES.md](./VERCEL_DEPLOYMENT_ISSUES.md)** for Vercel-specific deployment issues and solutions.
+
+See **[DEPLOYMENT_ISSUES.md](./DEPLOYMENT_ISSUES.md)** for general deployment considerations.
 
 ### Platform-Specific Notes
 
-- **Vercel**: Automatically handles `postinstall` scripts. Set environment variables in dashboard.
-- **Railway**: Supports Next.js standalone output. Add environment variables in dashboard.
-- **Docker**: Standalone output works well. Ensure environment variables are available.
+- **Vercel**: ✅ Recommended platform. Automatically detects Next.js. Set environment variables in dashboard. **Important**: `output: 'standalone'` has been removed from `next.config.js` for Vercel compatibility.
+- **Railway**: Add environment variables in dashboard.
+- **Docker**: Ensure environment variables are available.
 
 ## 📝 Notes
 
-- Database connection is optional for initial development
+- **Database**: Not currently used. Prisma integration is planned for future development.
+- **Authentication**: Not currently implemented. NextAuth integration is planned.
 - All API routes include TODO comments for integration points
 - Dashboard pages are placeholders ready for data integration
-- Authentication pages are UI-only (NextAuth integration pending)
 - Payment flows are structured but not connected (Razorpay-ready)
 - The marketing copy on the public landing page has been simplified to remove heavy "subscription platform" and SaaS wording; it now describes Dudhpuke mainly as regular local milk delivery with simple monthly payment.
 
