@@ -6,11 +6,11 @@
   "/api/subscription-inquiry/route": "app/api/subscription-inquiry/route.js",
   "/api/subscriptions/route": "app/api/subscriptions/route.js",
   "/page": "app/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
-  "/(dashboard)/customers/page": "app/(dashboard)/customers/page.js",
-  "/(dashboard)/products/page": "app/(dashboard)/products/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
   "/(dashboard)/orders/page": "app/(dashboard)/orders/page.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(dashboard)/customers/page": "app/(dashboard)/customers/page.js",
   "/(dashboard)/page": "app/(dashboard)/page.js",
-  "/(dashboard)/subscriptions/page": "app/(dashboard)/subscriptions/page.js"
+  "/(dashboard)/subscriptions/page": "app/(dashboard)/subscriptions/page.js",
+  "/(dashboard)/products/page": "app/(dashboard)/products/page.js"
 }

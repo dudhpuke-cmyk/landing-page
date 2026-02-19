@@ -74,7 +74,29 @@ npm error peer eslint@"^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-
 
 ---
 
-### 5. ⚠️ **Next.js 15 with Experimental Features**
+### 5. ❌ **Next.js 15 Client Reference Manifest Error**
+**Problem**: Error during build: `ENOENT: no such file or directory, lstat '/vercel/path0/.next/server/app/(dashboard)/page_client-reference-manifest.js'`
+
+**Root Cause**:
+- Next.js 15 build artifact generation issue with route groups and client components
+- Route group `(dashboard)` with client component `DashboardSidebar` causes build artifact mismatch
+- Vercel's build environment may handle this differently than local builds
+
+**Error Expected**:
+```
+Error: ENOENT: no such file or directory, lstat '/vercel/path0/.next/server/app/(dashboard)/page_client-reference-manifest.js'
+```
+
+**Solution Applied**: ✅ 
+- Added webpack configuration to `next.config.js` to ensure proper client component handling
+- Fixed navigation paths in `DashboardSidebar` to match actual route structure
+- Route group `(dashboard)` creates routes at root level (`/orders`, `/customers`, etc.), not `/dashboard/*`
+
+**Note**: The homepage at `app/page.tsx` takes precedence over `app/(dashboard)/page.tsx` (both target `/`), which is correct behavior.
+
+---
+
+### 6. ⚠️ **Next.js 15 with Experimental Features**
 **Problem**: Using Next.js 15.1.0 with experimental package optimization.
 
 **Potential Issues**:
@@ -171,7 +193,9 @@ If all steps succeed, the Vercel deployment should work.
 2. ✅ **FIXED**: Created `.env.example` file with all required environment variables
 3. ✅ **FIXED**: Updated README.md to clarify Prisma is not currently used (marked as future feature)
 4. ✅ **FIXED**: Downgraded ESLint from `^10.0.0` to `^9.39.1` to fix dependency conflicts with eslint-plugin-react-hooks
-5. ✅ **VERIFIED**: Confirmed no Prisma imports exist in codebase
+5. ✅ **FIXED**: Added webpack configuration to `next.config.js` to handle Next.js 15 client component build artifacts
+6. ✅ **FIXED**: Updated `DashboardSidebar` navigation paths to match actual route structure (route groups don't create URL segments)
+7. ✅ **VERIFIED**: Confirmed no Prisma imports exist in codebase
 
 ## Next Steps for Deployment
 

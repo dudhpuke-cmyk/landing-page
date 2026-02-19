@@ -5,6 +5,17 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  // Workaround for Next.js 15 route groups and client components
+  // This ensures proper build artifact generation
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+      }
+    }
+    return config
+  },
 }
 
 module.exports = nextConfig

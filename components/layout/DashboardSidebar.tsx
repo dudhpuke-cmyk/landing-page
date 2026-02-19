@@ -5,11 +5,11 @@ import { usePathname } from 'next/navigation'
 import { cn } from '../../lib/utils'
 
 const navItems = [
-  { href: '/dashboard', label: 'Overview', icon: '📊' },
-  { href: '/dashboard/orders', label: 'Orders', icon: '📦' },
-  { href: '/dashboard/subscriptions', label: 'Subscriptions', icon: '🔄' },
-  { href: '/dashboard/customers', label: 'Customers', icon: '👥' },
-  { href: '/dashboard/products', label: 'Products', icon: '🥛' },
+  { href: '/', label: 'Overview', icon: '📊' },
+  { href: '/orders', label: 'Orders', icon: '📦' },
+  { href: '/subscriptions', label: 'Subscriptions', icon: '🔄' },
+  { href: '/customers', label: 'Customers', icon: '👥' },
+  { href: '/products', label: 'Products', icon: '🥛' },
 ]
 
 export function DashboardSidebar() {
