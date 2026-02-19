@@ -56,7 +56,25 @@ Deployment timeout
 
 ---
 
-### 4. ⚠️ **Next.js 15 with Experimental Features**
+### 4. ❌ **ESLint Version Conflict**
+**Problem**: ESLint 10.0.0 is incompatible with `eslint-plugin-react-hooks@7.0.1` which only supports ESLint up to v9.
+
+**Error Expected**:
+```
+npm error ERESOLVE could not resolve
+npm error peer eslint@"^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0" from eslint-plugin-react-hooks@7.0.1
+```
+
+**Root Cause**:
+- `eslint@^10.0.0` is too new
+- `eslint-plugin-react-hooks@^7.0.1` doesn't support ESLint 10
+- `@eslint/js@^9.39.1` is designed for ESLint 9
+
+**Solution**: ✅ Downgraded ESLint to `^9.39.1` to match other packages
+
+---
+
+### 5. ⚠️ **Next.js 15 with Experimental Features**
 **Problem**: Using Next.js 15.1.0 with experimental package optimization.
 
 **Potential Issues**:
@@ -152,7 +170,8 @@ If all steps succeed, the Vercel deployment should work.
 1. ✅ **FIXED**: Removed `output: 'standalone'` from `next.config.js` - This was the main cause of Vercel deployment failures
 2. ✅ **FIXED**: Created `.env.example` file with all required environment variables
 3. ✅ **FIXED**: Updated README.md to clarify Prisma is not currently used (marked as future feature)
-4. ✅ **VERIFIED**: Confirmed no Prisma imports exist in codebase
+4. ✅ **FIXED**: Downgraded ESLint from `^10.0.0` to `^9.39.1` to fix dependency conflicts with eslint-plugin-react-hooks
+5. ✅ **VERIFIED**: Confirmed no Prisma imports exist in codebase
 
 ## Next Steps for Deployment
 
