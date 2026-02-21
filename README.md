@@ -127,8 +127,9 @@ Dudhpuke-landingPage/
 ### Public Website (Simplified Landing)
 
 - ✅ **Hero Section** - Clear headline, simple CTAs for milk delivery
-- ✅ **Brand Story** - Short family-run dairy story without technical jargon
+- ✅ **Brand Story** - Founder and family story (Puspa Raj Adhikari), with farm background image and process gallery (family, cows, milking, processing)
 - ✅ **Product Overview** - Product cards (Milk, Paneer, Ghee)
+- ✅ **Image Showcase Section** - Visual gallery of farm, milk, paneer, and ghee images
 - ✅ **How It Works** - Simple 3-step explanation of delivery and payment
 - ✅ **Delivery Coverage** - Plain explanation of local areas served
 - ✅ **Testimonials** - Basic customer quotes

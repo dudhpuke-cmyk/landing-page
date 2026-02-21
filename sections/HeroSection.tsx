@@ -32,6 +32,12 @@ export default function HeroSection() {
             pure milk, fresh paneer, ghee, and cheese directly from our farm to your home every morning with simple,
             regular delivery.
           </p>
+          <p className="max-w-xl text-xs font-medium text-brand-dark/80 sm:text-sm">
+            Started by{' '}
+            <span className="font-semibold text-brand-dark">Puspa Raj Adhikari</span> - a teacher
+            who helped found School and later moved into dairy farming to serve
+            local families like his own.
+          </p>
           <div className="flex flex-wrap items-center gap-3">
             <Button href="#contact">Get Products Delivered</Button>
             <Button
