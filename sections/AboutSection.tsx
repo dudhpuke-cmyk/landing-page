@@ -10,7 +10,7 @@ export default function AboutSection() {
       {/* Farm Background Image */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/images/farm-background.jpg"
+          src="/farm-image/IMG_1752.JPG"
           alt="Dudhpuke farm background - green fields and dairy farm"
           fill
           className="object-cover opacity-20"
@@ -34,60 +34,100 @@ export default function AboutSection() {
           </header>
 
           {/* Farm Process Images Gallery */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
-            <figure className="group relative overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
-              <Image
-                src="/images/farm-family.jpg"
-                alt="Family members working together at Dudhpuke dairy farm"
-                width={900}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72 lg:h-80"
-              />
-              <figcaption className="space-y-1 p-3 text-xs sm:text-sm">
-                <p className="font-semibold text-brand-dark">Family-Run Operation</p>
-                <p className="text-slate-700">Our family has been running this dairy for generations.</p>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1754.JPG"
+                  alt="Young calf resting on hay at Dudhpuke dairy farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Our Young Calves</p>
+                <p className="text-slate-700">Caring for our young calves with fresh hay and comfortable shelter.</p>
               </figcaption>
             </figure>
 
-            <figure className="group relative overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
-              <Image
-                src="/images/farm-cows-grazing.jpg"
-                alt="Healthy cows grazing on Dudhpuke farm fields"
-                width={900}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72 lg:h-80"
-              />
-              <figcaption className="space-y-1 p-3 text-xs sm:text-sm">
-                <p className="font-semibold text-brand-dark">Our Farm Cattle</p>
-                <p className="text-slate-700">Well-cared-for cows on our own farm fields.</p>
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1755.JPG"
+                  alt="Black dairy cow eating from trough at Dudhpuke farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Well-Fed Cows</p>
+                <p className="text-slate-700">Our dairy cows receive proper nutrition and care daily.</p>
               </figcaption>
             </figure>
 
-            <figure className="group relative overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
-              <Image
-                src="/images/milking-process.jpg"
-                alt="Fresh milking process at Dudhpuke dairy farm"
-                width={900}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72 lg:h-80"
-              />
-              <figcaption className="space-y-1 p-3 text-xs sm:text-sm">
-                <p className="font-semibold text-brand-dark">Morning Milking</p>
-                <p className="text-slate-700">Same-morning milking for the freshest milk.</p>
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1756.JPG"
+                  alt="Puspa Raj Adhikari cooking food for the cows at Dudhpuke dairy farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Preparing Cow Feed</p>
+                <p className="text-slate-700">Our founder, Puspa Raj Adhikari, preparing nutritious meals for our cows.</p>
               </figcaption>
             </figure>
 
-            <figure className="group relative overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
-              <Image
-                src="/images/dairy-processing.jpg"
-                alt="Processing paneer and ghee from fresh milk at Dudhpuke"
-                width={900}
-                height={600}
-                className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-105 sm:h-72 lg:h-80"
-              />
-              <figcaption className="space-y-1 p-3 text-xs sm:text-sm">
-                <p className="font-semibold text-brand-dark">Dairy Processing</p>
-                <p className="text-slate-700">Making paneer, ghee, and cheese from our fresh milk.</p>
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1757.JPG"
+                  alt="Cow in pen with hay at Dudhpuke dairy farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Comfortable Pens</p>
+                <p className="text-slate-700">Our cows rest in clean, well-maintained pens with fresh hay.</p>
+              </figcaption>
+            </figure>
+
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1758.JPG"
+                  alt="Close-up of dairy cow in barn at Dudhpuke farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Caring for Our Cows</p>
+                <p className="text-slate-700">Each cow receives individual attention and proper care in our barn.</p>
+              </figcaption>
+            </figure>
+
+            <figure className="group relative flex flex-col overflow-hidden rounded-2xl border border-brand-cream bg-white/95 shadow-soft">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-brand-cream/20">
+                <Image
+                  src="/farm-image/IMG_1759.JPG"
+                  alt="Dairy cow feeding in barn at Dudhpuke farm"
+                  fill
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+              </div>
+              <figcaption className="space-y-1 p-4 text-xs sm:text-sm">
+                <p className="font-semibold text-brand-dark">Daily Feeding</p>
+                <p className="text-slate-700">Regular feeding ensures our cows stay healthy and produce quality milk.</p>
               </figcaption>
             </figure>
           </div>

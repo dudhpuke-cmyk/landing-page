@@ -38,7 +38,7 @@ export const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Dudhpuke',
-  image: ['https://omsaipashupalan.com.np/og-image.jpg'],
+  image: ['https://omsaipashupalan.com.np/farm-image/IMG_1752.JPG'],
   '@id': 'https://omsaipashupalan.com.np',
   url: 'https://omsaipashupalan.com.np',
   telephone: siteMetadata.businessPhone,

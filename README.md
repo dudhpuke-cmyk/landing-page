@@ -256,6 +256,8 @@ See **[VERCEL_DEPLOYMENT_ISSUES.md](./VERCEL_DEPLOYMENT_ISSUES.md)** for Vercel-
 
 See **[DEPLOYMENT_ISSUES.md](./DEPLOYMENT_ISSUES.md)** for general deployment considerations.
 
+See **[DOMAIN_CONFIGURATION_GUIDE.md](./DOMAIN_CONFIGURATION_GUIDE.md)** for configuring multiple domains with Vercel nameservers and fixing "Invalid Configuration" errors.
+
 ### Platform-Specific Notes
 
 - **Vercel**: ✅ Recommended platform. Automatically detects Next.js. Set environment variables in dashboard. **Important**: `output: 'standalone'` has been removed from `next.config.js` for Vercel compatibility.
