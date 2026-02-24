@@ -5,6 +5,18 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com',
+      },
+    ],
+  },
   // Workaround for Next.js 15 route groups and client components
   // This ensures proper build artifact generation
   webpack: (config, { isServer }) => {

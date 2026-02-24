@@ -5,31 +5,31 @@ export default function WhyChooseUsSection() {
   return (
     <SectionShell
       id="why-us"
-      eyebrow="Why Choose Us"
-      title="Fresh Dairy Products with a Short Journey from Farm to Home"
-      description="Dudhpuke keeps the path from our farm to your kitchen simple and clear, so you know what you are serving at home."
+      eyebrow="Why Us!"
+      title="Few Reasons Why People Choosing Us!"
+      description="Our commitment to quality, freshness, and sustainability sets us apart in the dairy industry. Here's why our customers trust us:"
     >
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         <FeatureCard
-          title="Farm Fresh"
-          description="Milk is collected from our own farm, and we make paneer, ghee, and cheese fresh daily. Everything is dispatched quickly so it reaches you fresh each morning."
+          title="Fresh, quality dairy products"
+          description="We deliver consistently fresh, premium-quality dairy products with rigorous quality checks."
         />
         <FeatureCard
-          title="No Chemicals"
-          description="We do not use preservatives, whitening agents, or artificial thickening. Just honest, natural milk and dairy products."
+          title="Eco-friendly practices"
+          description="Pure, natural, and sustainably sourced dairy straight from local farms with environmentally conscious practices."
         />
         <FeatureCard
-          title="Direct from Farm"
-          description="No aggregation, no mixing from unknown sources. All your dairy products come from Om Sai Pashu Palan only."
+          title="Strict quality checks"
+          description="Every product undergoes thorough quality assurance to ensure you receive only the best dairy products."
         />
-        <FeatureCard
-          title="Easy to Plan"
-          description="Set your daily milk and dairy product needs once and get predictable deliveries with simple monthly payment."
-        />
-        <FeatureCard
-          title="Local & Accessible"
-          description="We focus on nearby delivery areas so we can keep routes short and quality under close watch."
-        />
+      </div>
+      <div className="mt-8 text-center">
+        <a
+          href="#products"
+          className="inline-flex items-center rounded-full bg-brand-green px-6 py-3 text-sm font-semibold text-white hover:bg-brand-dark transition-colors"
+        >
+          Explore More
+        </a>
       </div>
     </SectionShell>
   )
