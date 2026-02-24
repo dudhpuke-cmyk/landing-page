@@ -17,7 +17,7 @@ export default function ProductsSection() {
     },
     {
       name: 'Fresh Curd',
-      image: '/farm-image/IMG_1763.JPG',
+      image: '/farm-image/fresh-curd.jpg',
     },
   ]
 
