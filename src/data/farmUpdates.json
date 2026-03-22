@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Morning Milking Session",
+    "caption": "Our daily morning milking routine ensures fresh, pure milk for your family. Our cows are milked twice daily with utmost care and hygiene.",
+    "mediaUrl": "/farm-image/IMG_1752.JPG",
+    "mediaType": "image",
+    "date": "2026-03-15"
+  },
+  {
+    "id": 2,
+    "title": "Cow Feeding Time",
+    "caption": "Healthy cows produce quality milk. We feed our cattle with organic grass and nutritious feed to maintain their health and well-being.",
+    "mediaUrl": "/farm-image/IMG_1754.JPG",
+    "mediaType": "image",
+    "date": "2026-03-14"
+  },
+  {
+    "id": 3,
+    "title": "Traditional Ghee Preparation",
+    "caption": "Watching our traditional method of preparing pure, aromatic ghee. Made with love and patience, following age-old family recipes.",
+    "mediaUrl": "/farm-image/ghee.jpg",
+    "mediaType": "image",
+    "date": "2026-03-13"
+  },
+  {
+    "id": 4,
+    "title": "New Calf Birth",
+    "caption": "Celebrating the birth of a healthy new calf! Our farm family continues to grow, ensuring sustainable dairy production for years to come.",
+    "mediaUrl": "/farm-image/IMG_1755.JPG",
+    "mediaType": "image",
+    "date": "2026-03-12"
+  }
+]

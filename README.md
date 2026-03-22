@@ -273,6 +273,24 @@ See **[DOMAIN_CONFIGURATION_GUIDE.md](./DOMAIN_CONFIGURATION_GUIDE.md)** for con
 - Payment flows are structured but not connected (Razorpay-ready)
 - The marketing copy on the public landing page has been simplified to remove heavy "subscription platform" and SaaS wording; it now describes Dudhpuke mainly as regular local milk delivery with simple monthly payment.
 
+## 📢 Latest Layout + Ad Integration Update
+
+- Added a strict global `.container` (`max-width: 1200px`, centered, with `16px` side padding) for safe page-level layout constraints.
+- Introduced `.content-layout` grid on the main home page (`2fr 1fr`) with a constrained `.sidebar` (`300px`) and a responsive fallback to single-column below `1024px`.
+- Added reusable `AdUnit` component at `sections/AdUnit.tsx` with fixed ad dimensions:
+  - `banner`: max `728x90`
+  - `rectangle`: `300x250`
+  - `sidebar`: `300x600`
+- Inserted ads safely on the home page:
+  - one banner below navbar,
+  - one rectangle after early content,
+  - one rectangle near bottom (hidden on mobile to keep ad count low),
+  - one sidebar unit for desktop-only sidebar.
+- Added mobile ad protection:
+  - banner switches to `320x100` constraint on small screens,
+  - sidebar hidden on tablet/mobile,
+  - reduced mobile ad density (max 2 visible ads).
+
 ## 📄 License
 
 Proprietary - Om Sai Pashu Palan / Dudhpuke

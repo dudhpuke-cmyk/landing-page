@@ -19,3 +19,73 @@ body {
   @apply py-4 sm:py-6 lg:py-10;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.content-layout.with-sidebar {
+  grid-template-columns: minmax(0, 2fr) 300px;
+}
+
+.content {
+  width: 100%;
+  min-width: 0;
+}
+
+.sidebar {
+  width: 300px;
+  justify-self: end;
+}
+
+.ad-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.ad-unit-banner {
+  width: 100%;
+  max-width: 728px;
+  height: 90px;
+}
+
+.ad-unit-rectangle {
+  width: 300px;
+  height: 250px;
+}
+
+.ad-unit-sidebar {
+  width: 300px;
+  height: 600px;
+}
+
+@media (max-width: 1024px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .ad-unit-banner {
+    width: min(100%, 320px);
+    max-width: 320px;
+    height: 100px;
+  }
+
+  .hide-mobile-ad {
+    display: none;
+  }
+}

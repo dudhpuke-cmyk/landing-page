@@ -45,6 +45,15 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <Script
+          id="adsense-script"
+          async
+          strategy="afterInteractive"
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${
+            process.env.NEXT_PUBLIC_ADSENSE_CLIENT || 'ca-pub-9234241970335447'
+          }`}
+          crossOrigin="anonymous"
+        />
         <Script id="ld-json" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(structuredData)}
         </Script>
